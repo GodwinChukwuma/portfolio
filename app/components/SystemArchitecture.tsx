@@ -21,14 +21,14 @@ export default function SystemArchitecture() {
             {
               title: 'Scalable Microservices Platform',
               description:
-                'Designed and delivered a production‑grade microservices architecture that handles 1 million+ daily requests with 99.99 % uptime. Leveraged containerization and service‑mesh patterns to ensure maintainability, reliability and performance at scale.',
+                'Designed and shipped a microservices backend handling 1M+ daily requests with 99.99% uptime, focusing on domain boundaries, API contracts, and performance at scale.',
               details: [
-                'Container orchestration & service mesh: Containerized services with Docker and orchestrated them using Kubernetes; integrated Istio to manage inter‑service communication, traffic routing and observability.',
-                'Event‑driven design: Implemented an Apache Kafka–based event bus to decouple services, enable asynchronous workflows and support high‑throughput ingestion.',
-                'Performance optimization: Applied caching and query‑tuning techniques across MongoDB and Redis to achieve a 40 % reduction in average response times while maintaining data integrity.',
-                'Reliability & tooling: Automated deployments via CI/CD pipelines and instrumented the stack with Prometheus and Grafana dashboards; chaos‑testing and proactive alerting helped maintain 99.99 % uptime under peak load.',
+                'Service design: Defined domain-driven service boundaries, REST contracts, and versioning to enable independent releases and team ownership.',
+                'Event-driven workflows: Implemented Kafka-based messaging for async processing, retries, and idempotent handlers across services.',
+                'Performance engineering: Reduced average response time by ~40% using Redis caching, MongoDB indexing, and query profiling.',
+                'Reliability in code: Added timeouts, circuit breakers, structured logging, and trace correlation to stabilize behavior under peak load.',
               ],
-              tech: ['Kubernetes', 'Docker', 'Istio', 'Kafka', 'MongoDB', 'Redis'],
+              tech: ['Node.js', 'NestJS', 'Kafka', 'MongoDB', 'Redis'],
             },
 
             // Existing project: Real-time data processing pipeline
@@ -37,55 +37,54 @@ export default function SystemArchitecture() {
               description:
                 'Architected a robust data processing pipeline capable of handling 5 TB+ of streaming data per day with sub‑second end‑to‑end latency, enabling real‑time analytics and decision‑making.',
               details: [
-                'High‑throughput stream processing: Built a distributed processing layer using Apache Flink paired with AWS Kinesis for event ingestion, delivering sub‑second latency at scale.',
-                'Fault tolerance & failover: Designed stateful operators with automatic checkpointing and failover, ensuring data consistency and continuous operation across node failures.',
-                'Throughput tuning: Optimized serialization, partitioning and resource allocation to achieve a 60 % increase in data throughput, minimizing back‑pressure and resource contention.',
-                'Observability & automation: Implemented comprehensive monitoring and alerting with Prometheus and Grafana, and integrated pipeline metrics into existing dashboards for proactive anomaly detection.',
+                'Stream processing: Built Flink jobs with clear event schemas, windowing, and exactly-once semantics where required.',
+                'State & recovery: Designed stateful operators with checkpointing and deterministic reprocessing to maintain correctness on failure.',
+                'Throughput tuning: Improved throughput by ~60% by optimizing partitioning, serialization formats, and operator parallelism.',
+                'Data quality: Implemented validation, deduplication, and late-event handling to keep analytics reliable in real time.',
               ],
-              tech: ['Apache Flink', 'AWS Kinesis', 'Prometheus', 'Grafana', 'Python', 'PostgreSQL'],
+              tech: ['Apache Flink', 'AWS Kinesis', 'Prometheus', 'JSON', 'Python', 'PostgreSQL'],
             },
 
             // Existing project: Streaming security analytics platform
             {
-              title: 'Streaming Security Analytics Platform',
+              title: 'Real-Time Distributed Analytics Platform',
               description:
                 'Built a real‑time security analytics system ingesting millions of events per day to detect anomalies and automate remediation.  Leveraged distributed messaging and container orchestration to achieve high reliability and near‑instant alerting.',
               details: [
-                'Distributed log ingestion: Designed a Kafka‑backed pipeline to collect logs from firewalls and host sensors; used Python microservices in Docker containers to parse and normalize events.',
-                'Real‑time anomaly detection: Deployed rule‑based and statistical detection engines as microservices written in Python and Go; orchestrated with Kubernetes for horizontal scaling and zero‑downtime updates.',
-                'Automated response: Integrated with firewall and endpoint APIs to automatically isolate compromised hosts and block malicious IPs, reducing mean time to respond by over 35 %.',
-                'Observability & cost control: Instrumented every service with Prometheus metrics and Grafana dashboards; implemented index‑rotation policies in Elasticsearch to maintain query performance and manage storage costs, aligning with best practices for high‑throughput streaming pipelines:contentReference[oaicite:0]{index=0}.',
+                'Streaming ingestion layer: Architected and implemented Kafka-backed ingestion services to reliably process and normalize high-volume event streams into a unified, versioned data model.',
+                'Scalable processing services: Built stateless, horizontally scalable backend services in Python and Go to process streaming data in real time, with explicit guarantees around throughput, latency, and fault tolerance.',
+                'Asynchronous workflows & integrations: Engineered asynchronous processing pipelines and external system integrations using well-defined APIs, reducing end-to-end processing time by over 35%.',
+                'Reliability & scalability: Designed for partition tolerance and graceful degradation using backpressure-aware consumers, idempotent processing, and retry-safe workflows.',
               ],
-              tech: ['Kafka', 'Elasticsearch', 'Kubernetes', 'Python', 'Go', 'Prometheus', 'Grafana'],
+              tech: ['Kafka', 'Python', 'Go', 'Grafana'],
             },
 
             // Existing project: Modern headless web platform
             {
               title: 'Modern Headless Web Platform',
               description:
-                'Led the migration of multiple customer‑facing websites to a headless architecture using Django and React, enabling global content delivery and agile feature rollout.  This decoupled approach improved performance and developer productivity.',
+                'Led migration to a headless architecture using Django + React, improving delivery speed, content reuse, and front-end performance.',
               details: [
-                'Headless CMS architecture: Implemented Django as the content engine and React as the presentation layer; the separation allowed independent scaling and improved flexibility:contentReference[oaicite:1]{index=1}.',
-                'GraphQL & CDN integration: Exposed structured content via GraphQL APIs and cached responses through a CDN; this reduced over‑fetching and cut average page load times by 25 %:contentReference[oaicite:2]{index=2} while increasing engagement.',
-                'CI/CD and secure deployments: Established automated pipelines with GitHub Actions and adopted a blue/green deployment strategy to achieve zero‑downtime releases; implemented HTTPS with automated certificate renewal and security best practices.',
-                'Content agility & reuse: Enabled content teams to publish once and distribute across multiple channels, reducing duplication by 50 % and improving reuse by 30 %:contentReference[oaicite:3]{index=3}; organizations adopting headless architectures report 30 % faster time‑to‑market and a 25 % increase in developer productivity:contentReference[oaicite:4]{index=4}.',
+                 'API architecture: Built Django services with clean domain models and GraphQL/REST APIs optimized for client-specific needs.',
+                'Caching strategy: Reduced page load time by ~25% using CDN caching, response shaping, and cache-aware API design.',
+                'Developer velocity: Introduced reusable components and API patterns that reduced duplicated implementation work by ~50%.',
+                'Security & correctness: Added auth, rate limiting, input validation, and audit-ready logging to protect content and endpoints.',
               ],
-              tech: ['Django', 'React', 'GraphQL', 'GitHub Actions', 'CDN', 'PostgreSQL', 'Docker'],
+              tech: ['Django', 'React', 'GraphQL', 'CDN', 'PostgreSQL', 'TypeScript'],
             },
 
             // New project: Secure CI/CD & infrastructure automation
             {
-              title: 'Secure CI/CD & Infrastructure Automation',
+              title: 'Secure Delivery Enablement',
               description:
-                'Implemented a comprehensive CI/CD and infrastructure‑as‑code platform that enabled rapid, secure, and repeatable deployments across multiple services.  This initiative balanced software engineering, DevOps, and security practices.',
+                'Improved release safety and engineering throughput by enforcing quality gates, profiling hot paths, and standardizing production observability.',
               details: [
-                'Unified pipeline: Built a GitHub Actions and Terraform pipeline to automate the provisioning of cloud resources and container deployments; CI/CD automation reduces deployment cycles by 50%:contentReference[oaicite:5]{index=5}.',
-                'Infrastructure as code: Adopted Terraform and Helm charts to define and manage infrastructure consistently; IaC reduces deployment times by up to 60% and ensures parity across environments:contentReference[oaicite:6]{index=6}.',
-                'DevSecOps integration: Embedded static code analysis, dependency scanning, and container vulnerability scanning into the pipeline; predictive monitoring and IaC reduce downtime incidents by 45%:contentReference[oaicite:7]{index=7}.',
-                'Observability & monitoring: Centralized logging, tracing, and metrics collection using Prometheus, Grafana, and the ELK stack; leveraged AI‑driven predictive alerts to reduce error rates by 30%:contentReference[oaicite:8]{index=8}.',
-                'Impact: Enabled secure, repeatable deployments across microservices, improved reliability, and freed engineering time to focus on feature development.',
+                'Quality gates: Enforced tests, linting, type checks, and build validation to prevent regressions before merge.',
+                'Performance profiling: Used Silk to profile endpoints and background jobs, identify bottlenecks, and reduce latency in critical paths.',
+                'Observability standards: Standardized metrics/logs/traces with dashboard-driven alerting in Grafana to reduce time-to-diagnosis.',
+                'Release readiness: Added health checks, smoke tests, and rollback-safe versioning patterns to support reliable deployments.',
               ],
-              tech: ['GitHub Actions', 'Terraform', 'Helm', 'Docker', 'Kubernetes', 'Prometheus', 'Grafana', 'ELK', 'SAST', 'SCA'],
+              tech: ['GitHub Actions', 'Silk', 'OpenTelemetry', 'Docker', 'Grafana', 'Sentry'],
             },
           ].map((project, index) => (
             <motion.div
